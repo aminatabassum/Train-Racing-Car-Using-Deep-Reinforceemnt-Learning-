@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Environment Generator</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+
+  <body>
+    <h1>Environment Generator</h1>
+
+    <h2>Create new racetrack</h2>
+    <p>
+      <input type="text" class="input" id="nr" placeholder="Number of rows" />
+    </p>
+
+    <p>
+      <input
+        type="text"
+        class="input"
+        id="nc"
+        placeholder="Number of columns"
+      />
+    </p>
+
+    <p>
+      <input type="button" class="button" id="generate" value="Generate" />
+    </p>
+
+    <hr />
+
+    <h2>Edit existing race track</h2>
+    <p>
+      <input
+        type="text"
+        class="input"
+        id="path"
+        placeholder="Enter path of saved track"
+        style="width: 500px"
+      />
+      <input type="button" class="button" id="edit" value="Edit" />
+    </p>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/jquery.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/sweetalert.min.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/fastquery.js') }}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+  </body>
+</html>

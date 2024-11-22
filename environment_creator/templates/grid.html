@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Grid</title>
+</head>
+<body>
+    <p>
+        <select class="input" id="tile-type">
+            <option value="1" {% if val == "1" %} selected {% endif %}>Soil</option>
+            <option value="2" {% if val == "2" %} selected {% endif %}>Grass</option>
+            <option value="3" {% if val == "3" %} selected {% endif %}>Road</option>
+        </select>
+
+        <input type="button" class="button" id="reset" value="Reset" />
+        <input type="button" class="button" id="back" value="Back" />
+    </p>
+
+    {% for i in range(grid|length) %}
+        <div class="row">
+        {% for j in range(grid[i]|length) %}
+            {% if grid[i][j] == 1 %}
+                <span id={{i ~ '-' ~ j}} class="soil tile">X</span>
+            {% elif grid[i][j] == 2 %}
+                <span id={{i ~ '-' ~ j}} class="grass tile">X</span>
+            {% elif grid[i][j] == 3 %}
+                <span id={{i ~ '-' ~ j}} class="road tile">X</span>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endfor %}
+
+    <p>
+        <input type="text" class="input" id="save-path" placeholder="Save path" />
+        <input type="button" class="button" id="save" value="Save" />
+    </p>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/fastquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/grid.js') }}"></script>
+</body>
+</html>
